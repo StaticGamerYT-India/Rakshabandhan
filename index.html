@@ -6,121 +6,126 @@
     <title>Puzzle Game</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-image: url('gradient.webp'), linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
-            background-size: cover;
-            background-blend-mode: overlay;
-            background-color: rgba(245, 247, 250, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 10px;
-            box-sizing: border-box;
-            animation: backgroundAnimation 30s linear infinite;
-        }
+      body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('gradient.webp'), linear-gradient(to bottom right, #1e1e1e, #333333);
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(30, 30, 30, 0.8); /* Dark background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    animation: backgroundAnimation 30s linear infinite;
+}
 
-        @keyframes backgroundAnimation {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
 
-        .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-            animation: fadeIn 2s ease-in-out;
-        }
+.container {
+    background-color: rgba(40, 40, 40, 0.9); /* Dark container background */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5); /* Darker shadow */
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease-in-out;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-        h1 {
-            color: #333333;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
+h1 {
+    color: #ffffff; /* White text for dark mode */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
 
-        p {
-            color: #666666;
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
+p {
+    color: #cccccc; /* Light gray text for better readability */
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
 
-        input[type="text"] {
-            padding: 15px;
-            width: 100%;
-            border-radius: 10px;
-            border: 1px solid #dddddd;
-            font-size: 1rem;
-            margin-bottom: 20px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
+input[type="text"] {
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #555555; /* Darker border for input field */
+    font-size: 1rem;
+    margin-bottom: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #333333; /* Dark input background */
+    color: #ffffff; /* White text for input */
+    box-sizing: border-box;
+}
 
-        input[type="text"]:focus {
-            border-color: #007bff;
-            outline: none;
-        }
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.3);
+}
 
-        button {
-            padding: 15px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0px 5px 10px rgba(0, 123, 255, 0.3);
-            width: 100%;
-            box-sizing: border-box;
-        }
+button {
+    padding: 15px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 5px 10px rgba(0, 123, 255, 0.3);
+    width: 100%;
+    box-sizing: border-box;
+}
 
-        button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
 
-            h1 {
-                font-size: 1.8rem;
-            }
+    h1 {
+        font-size: 1.8rem;
+    }
 
-            input[type="text"], button {
-                font-size: 0.9rem;
-                padding: 12px;
-            }
-        }
+    input[type="text"], button {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+}
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 15px;
-            }
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
 
-            h1 {
-                font-size: 1.5rem;
-            }
+    h1 {
+        font-size: 1.5rem;
+    }
 
-            input[type="text"], button {
-                font-size: 0.85rem;
-                padding: 10px;
-            }
-        }
+    input[type="text"], button {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}
+
     </style>
 </head>
 <body>
