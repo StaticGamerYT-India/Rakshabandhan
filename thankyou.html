@@ -125,13 +125,14 @@
                 const size = Math.random() * 100 + 50; // Random size between 50px and 150px
                 const left = Math.random() * 100; // Random position
                 const top = Math.random() * 100; // Random position
-                meme.style.width = `${size}px`;
-                meme.style.left = `${left}vw`;
-                meme.style.top = `${top}vh`;
+               meme.style.width = `${size}vw`; // Use viewport width to make memes responsive
+        meme.style.left = `${left}vw`;
+        meme.style.top = `${top}vh`;
                 meme.style.animationDelay = `${Math.random() * 10}s`; // Random delay
                 memeContainer.appendChild(meme);
             }
         }
+
 
         function reloadPage() {
             location.reload();
