@@ -111,11 +111,21 @@
     <script>
         function generateMemes() {
             const memeContainer = document.getElementById('meme-container');
-            const numMemes = 30; // Number of memes to display
+            const memeSources = [
+                '93483102.jpg',
+                '93483126.jpg',
+                '93483141.jpg',
+                '93483149.jpg',
+                '93483169.jpg',
+                '93483181.jpg',
+                'kidhar-se-laau-re-baba-itta-paisa.jpg',
+                'sisters-on-raksha-bandhan-be-like.jpg'
+            ];
+            const numMemes = 8; // Number of memes to display
             for (let i = 0; i < numMemes; i++) {
                 const meme = document.createElement('img');
                 meme.className = 'meme';
-                meme.src = `path/to/your/meme${i + 1}.jpg`; // Update with actual path
+                meme.src = memeSources[i % memeSources.length]; // Cycle through the meme images
                 const size = Math.random() * 100 + 50; // Random size between 50px and 150px
                 const left = Math.random() * 100; // Random position
                 const top = Math.random() * 100; // Random position
