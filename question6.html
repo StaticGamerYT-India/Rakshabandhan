@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question 2</title>
@@ -128,14 +128,8 @@
     <script>
         function nextQuestion() {
             var answer = document.getElementById("answer2").value.trim().toLowerCase();
-            if (answer === "nails") {
-                window.location.href = "question3.html";
-          else if (answer === "hair") {
-                window.location.href = "question3.html";// Redirect to the next question
-                else if (answer === "nail") {
-                window.location.href = "question3.html";
-                    else  if (answer === "hairs") {
-                window.location.href = "question3.html";
+            if (answer === "nails" || answer === "hair" || answer === "nail" || answer === "hairs") {
+                window.location.href = "question3.html"; // Redirect to the next question
             } else {
                 alert("Socho socho, aapka passion project hi hai yarr!");
             }
