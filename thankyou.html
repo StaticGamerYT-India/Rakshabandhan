@@ -28,6 +28,7 @@
             max-width: 600px;
             width: 90%;
             position: relative;
+            overflow: hidden;
         }
 
         h1 {
@@ -43,31 +44,36 @@
             line-height: 1.5;
         }
 
+        .meme-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none; /* Allow clicks to pass through */
+        }
+
         .meme {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 100%;
+            width: 100px; /* Adjust size */
             height: auto;
             opacity: 0;
-            animation: fadeIn 1s forwards, bounce 2s infinite;
+            animation: blowUp 5s infinite;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
+        @keyframes blowUp {
+            0% {
+                transform: scale(0) translateY(0);
+                opacity: 1;
             }
-            40% {
-                transform: translateY(-30px);
+            50% {
+                transform: scale(2) translateY(-50vh);
+                opacity: 1;
             }
-            60% {
-                transform: translateY(-15px);
+            100% {
+                transform: scale(0) translateY(-100vh);
+                opacity: 0;
             }
         }
 
@@ -91,29 +97,38 @@
 <body>
     <div class="container">
         <h1>Thank You!</h1>
-        <p>Your submission has been received. Enjoy some Rakshabandhan memes to celebrate!</p>
-        <img class="meme" src="https://example.com/rakshabandhan-meme1.jpg" alt="Rakshabandhan Meme">
-        <img class="meme" src="https://example.com/rakshabandhan-meme2.jpg" alt="Rakshabandhan Meme">
-        <img class="meme" src="https://example.com/rakshabandhan-meme3.jpg" alt="Rakshabandhan Meme">
+        <p>Your submission has been received. Enjoy some Rakshabandhan memes exploding onto your screen!</p>
+        <div class="meme-container" id="meme-container"></div>
         <button class="button" onclick="reloadPage()">See More Memes</button>
     </div>
 
     <script>
-        let memeIndex = 0;
-        const memes = document.querySelectorAll('.meme');
-        
-        function showNextMeme() {
-            memes.forEach((meme, index) => {
-                meme.style.opacity = index === memeIndex ? '1' : '0';
-            });
-            memeIndex = (memeIndex + 1) % memes.length;
+        function generateRandomPosition() {
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            return { x, y };
+        }
+
+        function generateMemes() {
+            const memeContainer = document.getElementById('meme-container');
+            const numMemes = 20; // Number of memes to display
+            for (let i = 0; i < numMemes; i++) {
+                const meme = document.createElement('img');
+                meme.className = 'meme';
+                meme.src = `https://example.com/rakshabandhan-meme${(i % 3) + 1}.jpg`; // Replace with your meme URLs
+                const { x, y } = generateRandomPosition();
+                meme.style.left = `${x}vw`;
+                meme.style.top = `${y}vh`;
+                meme.style.animationDelay = `${Math.random() * 5}s`;
+                memeContainer.appendChild(meme);
+            }
         }
 
         function reloadPage() {
             location.reload();
         }
 
-        setInterval(showNextMeme, 3000); // Change meme every 3 seconds
+        generateMemes();
     </script>
 </body>
 </html>
