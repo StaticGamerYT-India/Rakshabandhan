@@ -131,7 +131,8 @@ button:hover {
 <body>
     <div class="container">
         <h1>Emoji Puzzle</h1>
-        <p>Guess the emoji: 🐱</p>
+        <p>I am a timeless loop, created from metals, deep within the earth, I can symbolise eternity though my material form will one day decay. 
+        What am I ??? </p>
         <input type="text" id="emojiAnswer" placeholder="Enter your answer">
         <button onclick="checkEmojiAnswer()">Submit</button>
     </div>
@@ -139,7 +140,7 @@ button:hover {
     <script>
         function checkEmojiAnswer() {
             var answer = document.getElementById("emojiAnswer").value.trim().toLowerCase();
-            if (answer === "cat") {
+            if (answer === "ring") {
                 window.location.href = "question1.html";
             } else {
                 alert("Sorry, that's not correct. Try again!");
